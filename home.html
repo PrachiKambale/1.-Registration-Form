@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project | Shalu Sarees</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+  <style>
+
+    /* General reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+ .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .header-left,
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .header-left .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .below-logo {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 20px;
+      color: #555;
+      font-weight: bold;
+      font-family: 'Georgea' , serif;
+    }
+
+    .header-right a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      position: relative;
+    }
+    .header-left a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      position: relative;
+    }
+    
+    .header-right a span {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      border-radius: 50%;
+      padding: 2px 5px;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+    }
+    .nav-bar a {
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-bar.active {
+  display: flex;
+}
+    @media (max-width: 768px) {
+      .header-left .hamburger {
+        display: flex;
+      }
+
+      .header-left .search-icon {
+        order: 1;
+      }
+
+      .logo {
+        position: static;
+        transform: none;
+        flex-grow: 1;
+        text-align: center;
+      }
+      .nav-bar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+      }
+
+      
+      .nav-bar.active {
+        display: flex;
+      }
+    }
+
+
+    /* Hero Section */
+    .hero-image {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-image .overlay h1 {
+      font-size: 2.5em;
+      font-family: "Georgia" ,serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      justify-content: center;
+    }
+
+    .hero-image .overlay .shop-button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #b5651d;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .hero-image .overlay .shop-button:hover {
+      background-color: #d9842a;
+    }
+
+    @media (max-width: 768px) {
+      .hero-image {
+        height: 300px;
+      }
+
+      .hero-image .overlay h1 {
+        font-size: 1.8em;
+      }
+
+      .hero-image .overlay .shop-button {
+        font-size: 1em;
+        padding: 8px 16px;
+      }
+    }
+    .heading {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+  color:grey ; /* Gray color for elegance */
+  font-family: 'Georgia', serif;
+  text-transform: uppercase; /* Optional: Makes the text uppercase */
+  letter-spacing: 2px; /* Adds some spacing between letters */
+}
+    .heading-2{
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+  color:black; /* Gray color for elegance */
+  font-family: 'Georgia', serif;
+  text-transform: uppercase; /* Optional: Makes the text uppercase */
+  letter-spacing: 2px; /* Adds some spacing between letters */
+}
+.categories {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent items from wrapping */
+            background: #f8f8f8;
+            padding: 20px 0;
+            scrollbar-width: thin; /* For modern browsers */
+            scrollbar-color: #800080 #e6e6e6;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .categories::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .categories::-webkit-scrollbar-thumb {
+            background: #800080;
+            border-radius: 10px;
+        }
+
+        .categories::-webkit-scrollbar-track {
+            background: #e6e6e6;
+        }
+        
+        .category-item {
+            text-align: center;
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .category-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #800080; /* Purple border */
+            padding: 5px;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(128, 0, 128, 0.5);
+        }
+
+        .category-name {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #800080; /* Purple text */
+            font-weight: bold;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .category-item img {
+                width: 80px;
+                height: 80px; /* Slightly smaller images for smaller screens */
+            }
+
+.categories {
+            
+            justify-content: left;
+            justify-items: left;
+        }
+
+            .category-name {
+                font-size: 14px; /* Adjusted text size */
+            }
+        }
+
+/* Grid layout for saree cards */
+.saree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 10px;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Individual saree card styles */
+.saree-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s;
+  justify-content: center;
+  justify-items: center;
+}
+
+.saree-card:hover {
+  transform: translateY(-10px);
+}
+
+.saree-card img {
+  width: 100%;
+  height: auto;
+}
+
+.saree-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 16px;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.original-price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+
+.buy-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+
+.buy-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Wishlist icon styles */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  color: #d32f2f;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.wishlist-icon:hover {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .saree-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .saree-card h3 {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .buy-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .saree-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .saree-card h3 {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .buy-btn {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}
+  </style>
+</head>
+<body>
+ <header class="header">
+    <!-- Left Section (Hamburger + Search Icon) -->
+    <div class="header-left">
+      <div class="hamburger" onclick="toggleNav()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="search.html" title="Search" class="search-icon"><i class="fas fa-search"></i></a>
+    </div>
+
+    <!-- Center Section (Logo) -->
+    <div class="logo">
+      <img src="https://signature.freefire-name.com/img.php?f=2&t=Shalu" alt="Logo"></div>
+
+    <!-- Right Section (Profile, Wishlist, Cart Icons) -->
+    <div class="header-right">
+      <a href="profile.html" title="Profile"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" title="Wishlist"><i class="fas fa-heart"></i></a>
+      <a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </header>
+
+  <!-- Section Below Logo -->
+  <div class="below-logo">
+    Welcome to Shalu Sarees & Jewellery- Your One-Stop Indian Ethnic Wear Store!
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="nav-bar">
+    <a href="newarrivals.html">New Arrivals</a>
+    <a href="sarees.html">Sarees</a>
+    <a href="weddingsarees.html">Wedding Sarees</a>
+    <a href="jewellery.html">Jewellery</a>
+    <a href="weddingjewellewey.html">Wedding Jewellery</a>
+    <a href="bestsellers.html">Best Sellers</a>
+  </nav>
+  
+
+  <div class="hero-image">
+    <img src="https://www.poojasarees.com/wp-content/uploads/2023/06/Collection-page-banner_Wedding-Sarees-1024x296.jpg" alt="Elegant Sarees">
+    <div class="overlay">
+      <h1>Embrace the Art of Traditions</h1>
+      <p><i><b>"Handpicked Sarees & Jewelleryfor every moment of celebration"</b></i></p>
+      <a href="shopnow.html" class="shop-button">Shop Now</a>
+    </div>
+  </div>
+
+<!-- Categories Section -->
+  <h2 class="heading">SAREES</h2>
+<div class="categories">
+  <div class="category-item">
+    <a href="weddingsarees.html">  <img src="https://www.taneira.com/dw/image/v2/BKMH_PRD/on/demandware.static/-/Sites-Taneira-product-catalog/default/dw1e6193c0/images/Taneira/Catalog/SHH08A00392_1.jpg?sw=480&sh=728" alt="Silk Sarees"></a>
+       <div class="category-name">Wedding Sarees</div>
+    </div>
+    <div class="category-item">
+       <a href="silk.html" ><img src="https://fabanza.com/media/catalog/product/cache/c26a0736877cb8c5e2d45478f82a04d0/b/e/beige-premium-banarasi-silk-saree-with-traditional-zari-weaves-fabsa22213.jpg" alt="Cotton Sarees"></a>
+        <div class="category-name">Silk Sarees</div>
+    </div>
+    <div class="category-item">
+        <a href="desiner.html"><img src="https://5.imimg.com/data5/SI/JT/VF/SELLER-37269396/beautiful-and-gorgeous-party-and-wedding-wear-designer-saree-500x500.jpg" alt="Designer Sarees"></a>
+        <div class="category-name">Designer Sarees</div>
+    </div>
+    <div class="category-item">
+        <a href="cotton.html"> <img src="https://www.karagiri.com/cdn/shop/products/cotton-silk-saree-dark-blue-cotton-silk-saree-silk-saree-online-32065306099905.jpg?v=1651286467" alt="Casual Wear"></a>
+        <div class="category-name">Cotton Sarees</div>
+    </div>
+    <div class="category-item">
+        <a href="banarasi.html"> <img src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/500x/040ec09b1e35df139433887a97daa66f/b/a/banarasi-saree-in-mustard-v1-spf9909.jpg" alt="Banarasi Sarees"></a>
+        <div class="category-name">Banarasi Sarees</div>
+    </div>
+<div class="category-item">
+    <a href="festive.html"><img src="https://images.cbazaar.com/images/zari-woven-maroon-banarasi-silk-traditional-wear-saree-with-blouse-sasvw2024045ma-u.jpg" alt="Silk Sarees"></a>
+        <div class="category-name">Festiv Sarees</div>
+    </div>
+    <div class="category-item">
+        <a href="works.html">  <img src="https://i.pinimg.com/736x/79/9d/04/799d04c0be33b41791be23a5fe562070.jpg" alt="Cotton Sarees"></a>
+        <div class="category-name">Work Sarees</div>
+    </div>
+    <div class="category-item">
+        <img src="https://cdn.rajwadi.com/image/cache/data/innovative-casual-saree-for-festival-32335-800x1100.jpg" alt="Silk Sarees">
+            <div class="category-name">Causal Sarees</div>
+        </div>
+        <div class="category-item">
+            <img src="https://anayadesignerstudio.com/cdn/shop/files/Simple-designer-sarees-for-wedding-party-2021-3.jpg?v=1714611017" alt="Cotton Sarees">
+            <div class="category-name">simple sarees</div>
+        </div>
+</div>
+    <h2 class="heading">JEWELLERY</h2>
+ 
+<div class="categories">
+   <div class="category-item">
+    <a href="bridal.html"> <img src="https://blingbag.co.in/cdn/shop/files/EmeraldDhanunaBridalJewellerySet_11_1080x.jpg?v=1730982545" alt="Silk Sarees"></a>
+        <div class="category-name">Bridal Sets</div>
+    </div>
+    <div class="category-item">
+        <a href="choker.html">  <img src="https://www.rnarayanjewellers.com/cdn/shop/files/Aarini-modern-22kt-gold-pearls-choker-set-online-india-1_590x.jpg?v=1703124338" alt="Cotton Sarees"></a>
+        <div class="category-name">Choker Sets</div>
+    </div>
+    <div class="category-item">
+        <a href="pendant.html"> <img src="https://boldiful.com/cdn/shop/products/MinimalPearlPendantSet_1_1024x1024.jpg?v=1617880395" alt="Designer Sarees"></a>
+        <div class="category-name">Pendant Sets</div>
+    </div>
+    <div class="category-item">
+        <a href="earring.html">  <img src="https://ladyindia.com/cdn/shop/products/71VhH_2Bh6eWL._UL1500_1024x1024.jpg?v=1571439181" alt="Banarasi Sarees"></a>
+        <div class="category-name">Earrings</div>
+    </div>
+    <div class="category-item">
+        <a href="bangles.html">  <img src="https://d1ixo36kppfedg.cloudfront.net/faceview/h7e/dh/a9d/d3e/imgs/pd/1706938810892_1.jpeg" alt="Casual Wear"></a>
+        <div class="category-name">Bangles and Bracelets</div>
+    </div>
+<div class="category-item">
+    <a href="rings.html"> <img src="https://kinclimg9.bluestone.com/f_jpg,c_scale,w_1024,q_80,b_rgb:f0f0f0/giproduct/BICM0449R15_RAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-70491.png" alt="Silk Sarees"></a>
+        <div class="category-name">Rings</div>
+    </div>
+    <div class="category-item">
+        <a href="diamond.html"><img src="https://m.media-amazon.com/images/I/61CqPqHuetL._AC_UY300_.jpg" alt="Cotton Sarees"></a>
+        <div class="category-name">Diamond Necklaces</div>
+    </div>
+    </div>
+
+  
+</div>
+<div class="hero-image">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/VY/MT/NA/14579595/jewellery-and-gems-website-design-development-services-hyderabad.jpg"" width=70%; height=300px; alt="Elegant Sarees">
+    <div class="overlay">
+      <h1><i>"Weave your Elegance!"</i></h1>
+    </div>
+  </div>
+  </section>
+
+
+<u><h2 class="heading-2">BEST SELLERS</h2></u>
+<div class="saree-grid">
+  <!-- Saree Card 1 -->
+  <div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://fabanza.com/media/catalog/product/cache/c26a0736877cb8c5e2d45478f82a04d0/b/e/beige-premium-banarasi-silk-saree-with-traditional-zari-weaves-fabsa22213.jpg" alt="Saree 1">
+    <h3>Traditional Silk Saree</h3>
+    <p class="price">₹1,499 <span class="original-price">₹2,499</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+
+  <!-- Saree Card 2 -->
+  <div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://5.imimg.com/data5/SI/JT/VF/SELLER-37269396/beautiful-and-gorgeous-party-and-wedding-wear-designer-saree-500x500.jpg" alt="Saree 2">
+    <h3>Designer Saree</h3>
+    <p class="price">₹2,199 <span class="original-price">₹3,299</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+<!-- Saree Card 2 -->
+<div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://www.karagiri.com/cdn/shop/products/cotton-silk-saree-dark-blue-cotton-silk-saree-silk-saree-online-32065306099905.jpg?v=1651286467" alt="Saree 2">
+    <h3>Cotton Sarees</h3>
+    <p class="price">₹999 <span class="original-price">₹1,700</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+  <!-- Saree Card 3 -->
+  <div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://blingbag.co.in/cdn/shop/files/EmeraldHamsikaBridalJewellerySet_1.jpg?v=1699416808" alt="Saree 3">
+    <h3>Bridal Sets</h3>
+    <p class="price">₹7,000<span class="original-price">₹10,000</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+
+  <!-- Saree Card 4 -->
+  <div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://www.silberry.in/cdn/shop/files/S126__3.jpg?v=1719387901&width=533" alt="Saree 4">
+    <h3>Pendant Sets</h3>
+    <p class="price">₹999<span class="original-price">₹1,500</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+  <!-- Saree Card 4 -->
+  <div class="saree-card">
+    <div class="wishlist-icon">♡</div>
+    <img src="https://ladyindia.com/cdn/shop/products/71VhH_2Bh6eWL._UL1500_1024x1024.jpg?v=1571439181" alt="Saree 4">
+    <h3>Earrings</h3>
+    <p class="price">₹999<span class="original-price">₹1,500</span></p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+  </div>
+<!-- Footer -->
+<footer style="background-color: #3e2723; color: #ffffff; padding: 40px 20px; font-family: 'Arial', sans-serif;">
+    <div class="container" style="max-width: 1200px; margin: auto;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        
+        <!-- Brand and About Section -->
+        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+          <h3 style="font-size: 24px; font-weight: bold;">Shalu Sarees</h3>
+          <p style="font-size: 14px; line-height: 1.8;"><i>
+            Discover the finest collection of sarees for every occasion. Tradition meets elegance in every weave. Experience luxury like never before.
+          </i></p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+          <h4 style="font-size: 18px; font-weight: bold;">Quick Links</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2;">
+            <li><a href="index.html" style="text-decoration: none; color: #ffccbc;">Home</a></li>
+            <li><a href="collection.html" style="text-decoration: none; color: #ffccbc;">Collections</a></li>
+            <li><a href="#about" style="text-decoration: none; color: #ffccbc;">about.html</a></li>
+            <li><a href="contact.html" style="text-decoration: none; color: #ffccbc;">Contact us</a></li>
+            <li><a href="faqs.html" style="text-decoration: none; color: #ffccbc;">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+          <h4 style="font-size: 18px; font-weight: bold;">Follow Us</h4>
+          <div style="margin-top: 10px;">
+            <a href="https://facebook.com" target="_blank" style="margin-right: 15px;">
+              <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://instagram.com" t
